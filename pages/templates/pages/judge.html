@@ -1,0 +1,62 @@
+{% extends "pages/base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Did Judge Homer?</title>
+</head>
+
+<body>
+
+<link rel="stylesheet" href="{% static 'css/judge-style.css' %}">
+
+<div id='top'>
+    <p class='question'>Did Judge Homer?</p>
+</div>
+
+{% if did_judge_hr == 999 %}
+  {% if lastGameVal == 0 %}
+    <div id='middle'>
+    <p class='no'>No</p>
+    <p class='yessir'>Aaron Judge hasn't hit a home run since {{lastHRDate}}</p>
+  </div>
+
+  {% else %}
+    <div id='middle'>
+    <p class='yes'>Yes!</p>
+    <p class='yessir'>Judge did homer in the Yanks last game on {{lastHRDate}}!</p>
+    <p class='yessir'><a href="http://www.espn.com/mlb/team/_/name/nyy/new-york-yankees">Check out the game</a></p>
+    </div>
+  {% endif %}
+
+{% else %}
+  {% if lastGameVal != 0 %}
+    <div id='middle'>
+    <p class='yes'>Yes!</p>
+    <p class='yessir'>Aaron Judge homered today!</p>
+    <p class='yessir'><a href="http://www.espn.com/mlb/team/_/name/nyy/new-york-yankees">Check out the game</a></p>
+    </div>
+
+  {% else %}
+    <div id='middle'>
+    <p class='no'>No</p>
+    <p class='yessir'>Aaron Judge hasn't hit a home run since {{lastHRDate}}</p>
+  </div>
+  {% endif %}
+{% endif %}
+
+</body>
+
+<div id='bottom'>
+  <p class='yesish'>This page is only configured to work while Aaron Judge is on the Yankees. It will cease to exist when he leaves the team - as will my will to live.</p>
+</div>
+
+</html>
+
+{% endblock %}

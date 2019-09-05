@@ -1,0 +1,42 @@
+
+{% extends "pages/base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>The Immortal Game</title>
+    <link rel="stylesheet" href="{% static 'css/chessboard-0.3.0.css' %}">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="{% static 'js/chessboard-0.3.0.js' %}"></script>
+</head>
+
+<style>
+.img {
+    display: block;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 25px;
+}
+</style>
+
+<body>
+    <div class="img">
+    <div id="board"></div>
+    <script type="text/javascript">
+        var board = ChessBoard('board', 'start');
+    </script>
+    </div>
+</body>
+
+<script src="{% static 'js/chess.js' %}"></script>
+<script src="{% static 'js/rand_game.js' %}"></script>
+
+</html>
+
+{% endblock %}

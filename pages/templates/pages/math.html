@@ -1,0 +1,24 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+<head>
+    <title>Math</title>
+</head>
+
+<link rel="stylesheet" href="{% static 'css/main-style.css' %}">
+
+<div style="height:calc(100vh - 60px)">
+<object data="../../../static/writeup2.pdf" type="application/pdf" width="100%" style="height:calc(100vh - 60px)">
+
+<div id="body">
+  <p class="asdf">If you don't have a compatible PDF plugin installed, <a href="../../../static/writeup2.pdf">click here to
+  view my summer of math research.</a></p>
+</div>
+
+</object>
+</div>
+
+{% endblock %}

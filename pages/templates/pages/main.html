@@ -1,0 +1,21 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+<head>
+    <title>Home</title>
+</head>
+
+<link rel="stylesheet" href="{% static 'css/main-style.css' %}">
+
+<div id="body">
+<div><p class="asdf">Somehow you've made it to my website - welcome. Let me tell you a bit about myself, <strong>Colin</strong>.</p></div>
+<div><p class="asdf">I grew up in the small town of <strong>Shippensburg, PA</strong>, to which I owe many thanks. I am a graduate of the <strong>University of Virginia</strong>
+and I am currently a resident of <strong>Richmond, VA</strong>, the capital of the commonwealth.</p></div>
+<div><p class="asdf">Professionally, I am a software developer at <strong>CapTech Consulting</strong>, but I am also a mathematician, a chess player,
+an outdoors enthusiast, a rock climber, a snowboarder, and a vegetarian.</p></div>
+</div>
+
+{% endblock %}
