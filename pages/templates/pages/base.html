@@ -9,8 +9,42 @@
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
                     <link rel="shortcut icon" type="image/ico" href="{% static 'img/favicon.ico' %}"/>
     </head>
-    <body>
+
+    <link rel="stylesheet" href="{% static 'css/dark-mode.css' %}">
+
+    {% block extra_js %}
+    <script type="text/javascript">
+      var counter = false;
+      function func() {
+        console.log(counter)
+        counter = !counter;
+        if (counter) {
+            var elem = document.getElementById("this-body");
+            elem.className = 'dark'
+        }
+        else {
+            var elem = document.getElementById("this-body");
+            elem.className  = 'light'
+        }
+        return counter;
+      }
+    </script>
+    {% endblock %}
+
+    <body id="this-body" class="light">
         {% include 'pages/navbar.html' %}
         {% block content %}{% endblock %}
+        {% include 'pages/darkmode.html' %}
+
+        <body>
+
+        <label class="switch">
+          <input type="checkbox">
+          <div class="icon-color"> &#9790; </div>
+          <span class="slider round" onclick="func()" />
+        </label>
+
+        </body>
+
     </body>
 </html>
