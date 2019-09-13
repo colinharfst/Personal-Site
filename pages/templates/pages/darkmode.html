@@ -1,4 +1,4 @@
-<!-- {% load staticfiles %}
+{% load staticfiles %}
 
 <link rel="stylesheet" href="{% static 'css/dark-mode.css' %}">
 
@@ -8,6 +8,14 @@
   function func() {
     console.log(counter)
     counter = !counter;
+    if (counter) {
+        var elem = document.getElementById("this-body");
+        elem.className = 'dark'
+    }
+    else {
+        var elem = document.getElementById("this-body");
+        elem.className  = 'light'
+    }
     return counter;
   }
 </script>
@@ -21,4 +29,4 @@
   <span class="slider round" onclick="func()" />
 </label>
 
-</body> -->
+</body>
